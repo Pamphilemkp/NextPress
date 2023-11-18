@@ -1,25 +1,31 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-
+import Card from '@/components/Card';
 
 export default function Home() {
-
+  
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState('posts/1');
 
 
   const fetchApi = async(id) => {
-    const api = await fetch(`https://retrocket.github.io/retrocketeer-api/${currentPage}.json`, { next: { validate: 60}});
-    const res = await api.json();
-    const {data} = res;
-     setPosts(data);
-     return  data;
+        try {
+
+            const api = await fetch(`https://retrocket.github.io/retrocketeer-api/${currentPage}.json`, { next: { validate: 60}});
+            const res = await api.json();
+            const {data} = res;
+            setPosts(data);
+            return  data;
+
+            }
+        catch (error) {
+              console.error('Error fetching data:', error);
+              throw error;
+            }
   }
 
-  
-    console.log(currentPage);
+
 
   useEffect(()=>{
     fetchApi(currentPage);
@@ -31,15 +37,9 @@ export default function Home() {
             Recent posts
           </h1>
           <ul>
-           {posts.map( post => (
-            <li key={post.id}>
-              <Link href={`post-details/${post.id}`}>
-              <h1>{post.title}</h1>
-              <p>published_at: {' '}{post.published_at}</p>
-              </Link>
-              
-              </li>
-           ))}
+            {posts.map( post => (
+              <Card post={post} />
+            ))}
           </ul>
 
           <div className="flex gap-5 align-center text-blue-300"> 

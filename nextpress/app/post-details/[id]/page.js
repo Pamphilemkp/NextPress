@@ -7,12 +7,19 @@ const page = ({ params }) => {
   const [post, setPost] = useState(null);
   
   const fetchApi = async(id) => {
-    const api = await fetch(`https://retrocket.github.io/retrocketeer-api/post-details/${id}.json`, { next: { validate: 60}});
-    const res = await api.json();
-    setPost(res);
 
+    try {
+
+        const api = await fetch(`https://retrocket.github.io/retrocketeer-api/post-details/${id}.json`, { next: { validate: 60}});
+        const res = await api.json();
+        setPost(res);
+
+        }
+
+    catch (error) {
+            console.error('Error fetching data:', error);
+    }
 }
-
 
         useEffect(()=>{
             fetchApi(id);
