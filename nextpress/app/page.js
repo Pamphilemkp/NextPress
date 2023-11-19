@@ -1,13 +1,20 @@
+
 'use client'
 
 import { useEffect, useState } from "react";
 import Card from '@/components/Card';
+import RecentlyViewed from "@/components/RecentlyViewed";
+
 
 export default function Home() {
-  
+
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState('posts/1');
+    const [viewedPost, setViewedPost] = useState(null);
 
+  const handlePostViewed = (clickedPost) => {
+    setViewedPost(clickedPost);
+  }
 
   const fetchApi = async(id) => {
         try {
@@ -25,7 +32,7 @@ export default function Home() {
             }
   }
 
-
+  
 
   useEffect(()=>{
     fetchApi(currentPage);
@@ -37,9 +44,9 @@ export default function Home() {
             Recent posts
           </h1>
           <ul>
-            {posts.map( post => (
-              <Card post={post} />
-            ))}
+           {posts.map( post => (
+            <Card key={post.id} post={post} handlePostViewed={handlePostViewed} />
+           ))}
           </ul>
 
           <div className="flex gap-5 align-center text-blue-300"> 
@@ -49,9 +56,7 @@ export default function Home() {
           </div>
 
           <div className="">
-            <h2>
-              Recently viewed
-            </h2>
+            <RecentlyViewed  post={viewedPost} />
           </div>
     </main>
   )
