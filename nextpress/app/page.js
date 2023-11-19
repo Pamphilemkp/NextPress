@@ -39,15 +39,17 @@ export default function Home() {
   }, [currentPage]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-          <h1 className="">
+    <div className="p-12">
+    <main className="w-full bg-white p-12">
+          <p className="mb-4 text-4xl font-bold text-gray-800">
             Recent posts
-          </h1>
-          <ul>
+          </p>
+
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
            {posts.map( post => (
             <Card key={post.id} post={post} handlePostViewed={handlePostViewed} />
            ))}
-          </ul>
+          </div>
 
           <div className="flex gap-5 align-center text-blue-300"> 
             <button onClick={ () => setCurrentPage('posts/1')}>Page 1</button>
@@ -59,5 +61,6 @@ export default function Home() {
             <RecentlyViewed  post={viewedPost} />
           </div>
     </main>
+    </div>
   )
 }
