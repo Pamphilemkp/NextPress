@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-
-module.exports = nextConfig
+module.exports = {
+    images: {
+      domains: ['retrocket.github.io', 	'https://www.tailwind-kit.com', 'retrocket.io'],
+    },
+  };
