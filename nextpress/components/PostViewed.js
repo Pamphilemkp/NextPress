@@ -6,7 +6,7 @@ const PostViewed = ({post}) => {
     
     return (
       <li key={post.id}>
-        {post !== null ? (
+        {post ? (
                 // If post is not null, display the post content
                 <Link className="flex items-center justify-start w-full p-4  font-thin text-blue-500 underline" href={`post-details/${post.id}`}>
                   <span className="text-left">
@@ -19,10 +19,7 @@ const PostViewed = ({post}) => {
                             {post.title}
                     </span>
                     </Link>
-            ) : (
-                // If post is null, display a message
-             <p className="mx-4 text-sm font-normal">No post viewed yet.</p>
-            )}
+            ) : null}
       </li>
     );
   };

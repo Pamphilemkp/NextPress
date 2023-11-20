@@ -32,6 +32,7 @@ const RecentlyViewed = ({ post }) => {
    //clear items
    const handleClearItems =()=> {
     localStorage.removeItem('recentlyViewed');
+    window.location.reload();
    }
 
   return (
@@ -42,12 +43,16 @@ const RecentlyViewed = ({ post }) => {
         {storedPost.map((postStored) => (
           <PostViewed key={postStored.id} post={postStored} />
         ))}
-        {!storedPost.length === 0 ?
+        {storedPost.length > 0 ?
         (<button type="button"
         onClick={handleClearItems}
-         className="w-fit py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+         className="w-fit py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
             clear viewed items
-        </button>) : null}
+        </button>
+        ) :
+         (
+            <p className="mx-4 text-sm font-normal">No post viewed yet.</p>
+        )}
         
       </ul>
     </div>
