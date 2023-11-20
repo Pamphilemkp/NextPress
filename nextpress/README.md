@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# NextPress Blog App
+> Nextpres is a a basic blog app portal allowing the user to perform these navigations:
+- List of the authors
+- Paginations
+- Author details
+- Post details
+- View the visited pages
+- View the recent news
 
-First, run the development server:
+## Built With
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next JS 13
+- Tailwindcss
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live Demo (if available)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+[Live Demo Link](https://livedemo.com)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## To get a local copy up and running:
 
-## Learn More
+1. Clone this repository or download the zip folder:
 
-To learn more about Next.js, take a look at the following resources:
+**``https://github.com/NextPress.git`**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Navigate to the location of the folder in your machine:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**``you@your-Pc-name:~$ cd <NextPres/nextpress>``**
 
-## Deploy on Vercel
+To get a local copy up and running follow these simple example steps above.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Prerequisites: 
+Any kind of browser. 
+
+### Setup: 
+1. Clone the repository (git clone git@github.com:Pamphilemkp/NextPress.git)
+2. Then open the folder in your local environment where you cloned it.
+3. Navigate through the nextpress subdirectory
+
+### Deployment
+The application can easily  be deplayed on:
+ 1. Netlify
+ 2. vercel
+ 3. Aws
+  ... 
+
+[See project here]()
+
+## Authors
+
+👤 **Author**
+- GitHub:[@pamphilemkp](https://github.com/pamphilemkp)
+- Twitter:[@pamphilemkp](https://Twitter.com/PamphileMusonda)
+- LinkedIn:[@pamphilemkp](https://www.linkedin.com/in/pamphile-musonda)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Pamphilemkp/NextPress/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+- Inspiration
+- Creativity
+- Positivity
+- Passion
+- Hard work
+
+## Useful links
+
+- [Next js](https://nextjs.org/docs/)
+- [Tailwindcss](https://nextjs.org/docs/)
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
