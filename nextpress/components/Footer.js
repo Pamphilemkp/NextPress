@@ -4,7 +4,7 @@ const Footer= ()=> {
 
 return(
     
-<footer className="px-3 py-8 text-gray-500 transition-colors duration-200 bg-white dark:bg-gray-800 text-2 dark:text-gray-200">
+<footer className="px-3 p-4 sm:py-8 text-gray-500 transition-colors duration-200 bg-white dark:bg-gray-800 text-2 dark:text-gray-200">
     <div className="flex flex-col">
         <div className="flex flex-col mt-4 md:mt-0 md:flex-row">
             <div className="h-px mx-auto mt-4 rounded-full md:hidden w-11">
