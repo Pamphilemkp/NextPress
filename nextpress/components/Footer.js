@@ -31,16 +31,13 @@ return(
             </div>
             <div className="h-px mx-auto mt-4 rounded-full md:hidden w-11 ">
             </div>
-            <div className="flex items-center justify-center flex-1 mt-7 md:mt-0 md:items-start md:pl-5">
+            <div className="flex items-center text-sm justify-center flex-1 mt-7 md:mt-0 md:items-start md:pl-5">
                 
-                <span className=" flex gap-3 mt-7 md:mt-1 ">
-                    Created by
-                    <a className="underline hover:text-primary-gray-20  text-blue-500" href="https://linkedin.com/in/pamphile-musonda">
-                        Pamphile MKP
+                <span className="flex gap-3 mt-4 md:mt-1 ">
+                    
+                    <a className="" href="https://linkedin.com/in/pamphile-musonda">
+                      Created by <span className="underline hover:text-primary-gray-20  text-blue-500"> Pamphile MKP</span>
                     </a>
-
-                    -
-
                     <span className="">
                      retrocket © 2023
                     </span>
