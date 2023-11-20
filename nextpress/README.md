@@ -1,6 +1,6 @@
 
 # NextPress Blog App
-> Nextpres is a a basic blog app portal allowing the user to perform these navigations:
+Nextpress is a basic blog application portal allowing the user to perform these navigations:
 - List of the authors
 - Paginations
 - Author details
@@ -45,7 +45,13 @@ The application can easily  be deplayed on:
  3. Aws
   ... 
 
-[See project here]()
+[See project here](https://next-press-black.vercel.app/Authors)
+
+
+## Features on construction
+- The seach bar functionality
+- All erors handling
+
 
 ## Authors
 
