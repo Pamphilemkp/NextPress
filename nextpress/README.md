@@ -13,9 +13,9 @@ Nextpress is a basic blog application portal allowing the user to perform these 
 - Next JS 13
 - Tailwindcss
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://next-press-black.vercel.app/Authors)
 
 ## To get a local copy up and running:
 
