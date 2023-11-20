@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 
 const PostViewed = ({post}) => {
-    console.log(post.title)
+    
     return (
       <li key={post.id}>
         {post !== null ? (

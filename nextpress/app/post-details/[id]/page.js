@@ -28,7 +28,7 @@ const Page = ({ params }) => {
 
 
   return (
-    <div className="max-w-7xl mx-auto my-6 px-4 sm:px-6 lg:px-8 bg-white">
+    <div className="max-w-7xl mx-6 md:mx-auto my-6 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto pb-10">
             
             <div className="py-8">

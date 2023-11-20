@@ -36,8 +36,8 @@ export default function Home() {
   }, [currentPage]);
 
   return (
-    <div className="p-12">
-      <main className="w-full bg-white p-12">
+    <div className="p-5 md:p-12">
+      <main className="w-full bg-white p-4 sm:p-12">
         <p className="mb-4 text-4xl font-bold text-gray-800">Recent posts</p>
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
@@ -46,7 +46,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="flex space-x-1 text-blue-300 p-2 my-5">
+        <div className=" flex space-x-1 text-blue-300 p-2 my-5">
           <p className="font-bold text-lg">Pages ... </p>
           {[1, 2, 3].map((page) => (
             page === currentPage ?

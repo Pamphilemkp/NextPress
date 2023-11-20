@@ -39,7 +39,7 @@ const Page = () => {
         <div className="mx-auto w-full ">
           <ul  className="flex flex-col items-center md:flex-row justify-evenly">
             {authorStore.map((author) => (
-              <li className="" key={author.id}>
+              <li className="my-4 md:my-1  pb-6 border-b border-gray-400" key={author.id}>
                 <Image
                   src={`https://retrocket.github.io/retrocketeer-api${author.profile_image}`}
                   width={1000}
@@ -50,7 +50,7 @@ const Page = () => {
                 <p className="text-2xl text-gray-900 dark:text-white">{author.name} {author.surname}</p>
                 <p className="text-xl font-light text-gray-500 dark:text-gray-200">Author {author.id}</p>
 
-                <div className="flex items-center justify-between pt-8 mx-auto text-gray-500 border-t border-gray-200 w-44">
+                <div className="flex items-center justify-between pt-8 mx-auto text-gray-500  w-44">
                 <a href="#">
                     <svg width="30" height="30" fill="currentColor" className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z">
