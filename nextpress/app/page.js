@@ -20,6 +20,7 @@ export default function Home() {
       const res = await api.json();
       const { data } = res;
       setPosts(data);
+
       return data;
     } catch (error) {
       console.error('Error fetching data:', error);
