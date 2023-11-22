@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import SearchResult from '@/components/SearchResult';
@@ -51,15 +51,36 @@ const Navbar = () => {
     const value = e.target.value;
     setSearchElement(value);
     
-    const search = SearchStore ? SearchStore.filter(item => item.title.toLowerCase().includes(value.toLowerCase())) : [];
-        setResultOfSearch(search);
+  if (value.trim() === '') {
+    setResultOfSearch([]);
+  } else {
+    const search = SearchStore
+      ? SearchStore.filter(item =>
+          item.title.toLowerCase().includes(value.toLowerCase())
+        )
+      : [];
+    setResultOfSearch(search);
   }
 
+  }
 
-  
+  // Add a ref for the search input
+  const searchInputRef = useRef(null);
+
+  // Handle click outside the search input
+  const handleDocumentClick = (e) => {
+    if (!searchInputRef.current.contains(e.target)) {
+      setSearchElement('');
+      setResultOfSearch([]);
+    }
+  };
 
   useEffect(() => {
     fetchApi();
+    document.addEventListener('click', handleDocumentClick);
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
   }, []);
 
   return (
@@ -73,15 +94,15 @@ const Navbar = () => {
               </a>
               <div className="hidden md:block">
                 <div className="flex items-baseline ml-10 space-x-4">
-                <Link className={currentRoute === "/" ? "text-gray-900 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                <Link className={currentRoute === "/" ? " border-b border-purple-900 rounded-none text-purple-900 dark:hover:text-white px-3 py-2 hover:rounded-md text-md font-medium"
               :
-              " text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+              " text-gray-800 hover:border-b  hover:rounded-none hover:text-purple-500 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
               } href="/">
                 Home
               </Link>
-              <Link className={currentRoute === "/Authors" ? "text-gray-900 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+              <Link className={currentRoute === "/Authors" ? " border-b border-purple-900 rounded-none text-purple-900 dark:hover:text-white px-3 py-2 hover:rounded-md text-md font-medium"
               :
-              " text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+              " text-gray-800 hover:border-b  hover:rounded-none hover:text-purple-500 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
               } href="/Authors">
                 Authors
               </Link>
@@ -90,7 +111,7 @@ const Navbar = () => {
             </div>
             <div className="hidden md:block">
               <div className="flex -mr-2 md:block">
-                <form className="EX-FORM flex flex-col justify-center w-3/4 max-w-sm space-y-3 md:flex-row md:w-full md:space-x-3 md:space-y-0">
+                <form ref={searchInputRef} className="EX-FORM flex flex-col justify-center w-3/4 max-w-sm space-y-3 md:flex-row md:w-full md:space-x-3 md:space-y-0">
                   <div className="relative">
                     <input
                       type="text"
@@ -130,21 +151,21 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link className={currentRoute === "/" ? "text-gray-900 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+              <Link className={currentRoute === "/" ? " border-b border-purple-900 rounded-none text-purple-900 dark:hover:text-white px-3 py-2 hover:rounded-md text-md font-medium"
               :
-              " text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+              " text-gray-800 hover:border-b  hover:rounded-none hover:text-purple-500 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
               } href="/">
                 Home
               </Link>
-              <Link className={currentRoute === "/Authors" ? "text-gray-900 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+              <Link className={currentRoute === "/Authors" ? " border-b border-purple-900 rounded-none text-purple-900 dark:hover:text-white px-3 py-2 hover:rounded-md text-md font-medium"
               :
-              " text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+              " text-gray-800 hover:border-b  hover:rounded-none hover:text-purple-500 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
               } href="/Authors">
                 Authors
               </Link>
             </div>
             <div className="flex p-2">
-              <form className="EX-FORM flex flex-col justify-center w-3/4 max-w-sm space-y-3 md:flex-row md:w-full md:space-x-3 md:space-y-0">
+              <form ref={searchInputRef} className="EX-FORM flex flex-col justify-center w-3/4 max-w-sm space-y-3 md:flex-row md:w-full md:space-x-3 md:space-y-0">
                 <div className="relative">
                   <input
                     type="text"
@@ -167,7 +188,7 @@ const Navbar = () => {
           </div>
         )}
       </nav>
-        <div className="hidden md:flex justify-end">
+        <div  ref={searchInputRef} className="hidden md:flex justify-end">
           <SearchResult searchResults={resultOfSearch} />
         </div>
     </div>
