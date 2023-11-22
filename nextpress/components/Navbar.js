@@ -51,8 +51,17 @@ const Navbar = () => {
     const value = e.target.value;
     setSearchElement(value);
     
-    const search = SearchStore ? SearchStore.filter(item => item.title.toLowerCase().includes(value.toLowerCase())) : [];
-        setResultOfSearch(search);
+  if (value.trim() === '') {
+    setResultOfSearch([]);
+  } else {
+    const search = SearchStore
+      ? SearchStore.filter(item =>
+          item.title.toLowerCase().includes(value.toLowerCase())
+        )
+      : [];
+    setResultOfSearch(search);
+  }
+
   }
 
 
